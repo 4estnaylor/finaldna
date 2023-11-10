@@ -64,7 +64,7 @@ const BreedSlider = (props: BreedSliderProps) => {
   }
 
   return (
-    <Wrapper color={color} $isOn={isSelected}>
+    <Wrapper color={color} $isOn={isSelected || isFinished}>
       <TopBar>
         <LeftSideWrapper>
           <HorizontalFlexWrapper>
@@ -84,7 +84,7 @@ const BreedSlider = (props: BreedSliderProps) => {
           </HorizontalFlexWrapper>
         </LeftSideWrapper>
 
-        <Body $isOn={isSelected}>
+        <Body $isOn={isSelected || isFinished}>
           <SideBySide>
             <ImageBackground>
               <Image src={imgSrc} height={150} width={150} alt="photo" />
