@@ -15,6 +15,7 @@ interface BreedSliderProps {
   biggestPotentialPercentage: number;
   numberOfSelectedBreeds: number;
   isFinished: boolean;
+  breedIndex: number;
 }
 
 const BreedSlider = (props: BreedSliderProps) => {
@@ -26,7 +27,10 @@ const BreedSlider = (props: BreedSliderProps) => {
     biggestPotentialPercentage,
     numberOfSelectedBreeds,
     isFinished,
+    breedIndex,
   } = props;
+
+  console.log({ breedIndex });
 
   const { name, color, percent, isSelected, correct } = breed;
 
@@ -50,8 +54,17 @@ const BreedSlider = (props: BreedSliderProps) => {
     points = 0;
   }
 
+  // let sliderBlockerWidth = 0;
+  // if (percentRemaining < 50) {
+  //   sliderBlockerWidth = (73 * (100 - (percent + percentRemaining))) / 100;
+  // }
+  let sliderWidth = (100 / 73) * (percentRemaining + percent);
+  if (sliderWidth > 100) {
+    sliderWidth = 100;
+  }
+
   return (
-    <Wrapper color={color}>
+    <Wrapper color={color} $isOn={isSelected}>
       <TopBar>
         <LeftSideWrapper>
           <HorizontalFlexWrapper>
@@ -77,7 +90,12 @@ const BreedSlider = (props: BreedSliderProps) => {
               <Image src={imgSrc} height={150} width={150} alt="photo" />
             </ImageBackground>
             <ImageBackground>
-              <Image src={'/milo0.png'} height={150} width={150} alt="photo" />
+              <Image
+                src={`/milo${breedIndex % 4}.png`}
+                height={150}
+                width={150}
+                alt="photo"
+              />
             </ImageBackground>
           </SideBySide>
           <PercentagesWrapper>
@@ -94,17 +112,12 @@ const BreedSlider = (props: BreedSliderProps) => {
           </PercentagesWrapper>
         </Body>
       </TopBar>
-      <MySliderWrapper
-        width={
-          percent + percentRemaining >= 50
-            ? 100
-            : (percent + percentRemaining) * 2
-        }
-      >
+      <MySliderWrapper width={100}>
         <MySlider
           disabled={isFinished}
           $isOn={isSelected}
-          // type="range"
+          width={sliderWidth}
+          type="range"
           // inputProps={{
           //   step: 10,
           //   min: 0,
@@ -119,10 +132,17 @@ const BreedSlider = (props: BreedSliderProps) => {
           }
           step={1}
           onChange={(event: any) => {
+            if (
+              event.target.value > percent &&
+              event.target.value - percent > percentRemaining
+            ) {
+              return;
+            }
             let valueAsNumber = Number(event.target.value);
             handlePercentChange(valueAsNumber, name);
           }}
         />
+        {/* <MySliderBlocker width={sliderBlockerWidth} /> */}
       </MySliderWrapper>
 
       {/* <Slider
@@ -156,7 +176,7 @@ const LeftSideWrapper = styled.div`
   /* background-color: yellow; */
 `;
 
-const Wrapper = styled.div<{ color: string }>`
+const Wrapper = styled.div<{ color: string; $isOn: boolean }>`
   /* color: ${(p) => p.color}; */
   /* background-color: green; */
   width: 100%;
@@ -166,7 +186,7 @@ const Wrapper = styled.div<{ color: string }>`
   flex-wrap: wrap;
   min-height: 150px;
   justify-content: space-around;
-  background-color: #3a3e46;
+  background-color: ${(p) => (p.$isOn ? '#3a3e46' : '#3a3e4658')};
   padding: 10px;
   margin-top: 10px;
   border-radius: 8px;
@@ -182,6 +202,7 @@ const HorizontalFlexWrapper = styled.div`
 `;
 
 const MySliderWrapper = styled.div<{ width: number }>`
+  position: relative;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 10px;
@@ -189,10 +210,26 @@ const MySliderWrapper = styled.div<{ width: number }>`
   width: ${(p) => p.width + '%'};
 `;
 
-const MySlider = styled(Slider)<{ $isOn: boolean }>`
+const MySlider = styled.input<{ $isOn: boolean; width: number }>`
   color: 'inherit';
-  width: 100%;
+  width: ${(p) => p.width + '%'};
   visibility: ${(p) => (p.$isOn ? 'visible' : 'hidden')};
+  & .MuiSlider-thumb {
+    transition: 'none';
+  }
+  & .MuiSlider-track {
+    transition: 'none';
+  }
+`;
+
+const MySliderBlocker = styled.div<{ width: number }>`
+  position: absolute;
+  background-color: red;
+  /* width: 50%; */
+  width: ${(p) => p.width + '%'};
+  right: 0;
+  top: 0;
+  height: 100%;
 `;
 
 const Percentage = styled.div<{ $isOn: boolean }>`

@@ -70,6 +70,7 @@ const BreedSliders = (props: BreedSlidersProps) => {
           // <div key={index}>test</div>
           <BreedSlider
             key={breed.name}
+            breedIndex={index}
             breed={breed}
             isFinished={isFinished}
             percentRemaining={percentRemaining}
