@@ -88,11 +88,11 @@ export default function Home() {
         </p>
         <br />
         <br />
-        <p>{"73 % of Milo's results matched to 6 distinct breeds ."}</p>
+        <p>{"73 % of Milo's results matched to 6 distinct breeds."}</p>
         <br />
         <br />
         <p>
-          {`27% of Milo's DNA results are categorized as "Supermutt". We won't be guessing what's mixed in there. `}
+          {`27% of Milo's DNA results are categorized as "Supermutt". We won't be guessing for that portion of the results. `}
         </p>
         <br />
         <br />
