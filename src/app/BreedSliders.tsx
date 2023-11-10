@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
-// import BreedSlider from './BreedSlider';
+import BreedSlider from './BreedSlider';
 import BREEDS from '../../public/breeds';
 import { BreedPercent } from './page';
 import styled from 'styled-components';
@@ -67,17 +67,17 @@ const BreedSliders = (props: BreedSlidersProps) => {
       <br />
       {breeds.map((breed, index) => {
         return (
-          <div key={index}>test</div>
-          // <BreedSlider
-          //   key={breed.name}
-          //   breed={breed}
-          //   isFinished={isFinished}
-          //   percentRemaining={percentRemaining}
-          //   handlePercentChange={handleBreedPercentChange}
-          //   handleToggleSelected={handleToggleSelectBreed}
-          //   biggestPotentialPercentage={biggestPotentialPercentage}
-          //   numberOfSelectedBreeds={numberOfSelectedBreeds}
-          // />
+          // <div key={index}>test</div>
+          <BreedSlider
+            key={breed.name}
+            breed={breed}
+            isFinished={isFinished}
+            percentRemaining={percentRemaining}
+            handlePercentChange={handleBreedPercentChange}
+            handleToggleSelected={handleToggleSelectBreed}
+            biggestPotentialPercentage={biggestPotentialPercentage}
+            numberOfSelectedBreeds={numberOfSelectedBreeds}
+          />
         );
       })}
       <br />
@@ -90,7 +90,7 @@ const BreedSliders = (props: BreedSlidersProps) => {
       </p>
       <p>
         {' '}
-        Accounted for {percentRemaining}% of 73%{' '}
+        Accounted for {73 - percentRemaining}% of 73%{' '}
         {percentRemaining === 0 ? <CheckMark>✅</CheckMark> : null}
       </p>
       <br />
