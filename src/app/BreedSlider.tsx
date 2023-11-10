@@ -77,12 +77,7 @@ const BreedSlider = (props: BreedSliderProps) => {
               <Image src={imgSrc} height={150} width={150} alt="photo" />
             </ImageBackground>
             <ImageBackground>
-              <Image
-                src={'/milowallclose.png'}
-                height={150}
-                width={150}
-                alt="photo"
-              />
+              <Image src={'/milo0.png'} height={150} width={150} alt="photo" />
             </ImageBackground>
           </SideBySide>
           <PercentagesWrapper>
