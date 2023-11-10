@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 import styled from 'styled-components';
-// import BreedSliders from './BreedSliders';
+import BreedSliders from './BreedSliders';
 import BREEDS from '../../public/breeds';
 import { useState } from 'react';
 import { Button } from '@mui/material';
@@ -129,11 +129,11 @@ export default function Home() {
         </ImageWrapper>
         <br />
         <br />
-        {/* <BreedSliders
+        <BreedSliders
           isFinished={isFinished}
           userBreedPercents={userBreedPercents}
           setUserBreedPercents={setUserBreedPercents}
-        /> */}
+        />
         {isFinished ? (
           <>
             <FinalPoints>
