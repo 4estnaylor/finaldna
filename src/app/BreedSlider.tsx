@@ -127,9 +127,7 @@ const BreedSlider = (props: BreedSliderProps) => {
           // }}
           value={typeof percent === 'number' ? percent : 0}
           min={0}
-          max={
-            percent + percentRemaining >= 50 ? 50 : percent + percentRemaining
-          }
+          max={50}
           step={1}
           onChange={(event: any) => {
             if (
@@ -212,7 +210,7 @@ const MySliderWrapper = styled.div<{ width: number }>`
 
 const MySlider = styled.input<{ $isOn: boolean; width: number }>`
   color: 'inherit';
-  width: ${(p) => p.width + '%'};
+  width: ${100 + '%'};
   visibility: ${(p) => (p.$isOn ? 'visible' : 'hidden')};
   & .MuiSlider-thumb {
     transition: 'none';
