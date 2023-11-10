@@ -104,7 +104,7 @@ const BreedSlider = (props: BreedSliderProps) => {
         <MySlider
           disabled={isFinished}
           $isOn={isSelected}
-          type="range"
+          // type="range"
           // inputProps={{
           //   step: 10,
           //   min: 0,
@@ -184,10 +184,12 @@ const HorizontalFlexWrapper = styled.div`
 const MySliderWrapper = styled.div<{ width: number }>`
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   width: ${(p) => p.width + '%'};
 `;
 
-const MySlider = styled.input<{ $isOn: boolean }>`
+const MySlider = styled(Slider)<{ $isOn: boolean }>`
   color: 'inherit';
   width: 100%;
   visibility: ${(p) => (p.$isOn ? 'visible' : 'hidden')};
