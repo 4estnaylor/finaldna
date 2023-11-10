@@ -17,7 +17,7 @@ export type BreedPercent = {
 };
 
 const miloLink =
-  'http://em1.embarkvet.com/ls/click?upn=6boyTPJE7uVV-2F3jOYCsYhgRiqeIlxtV8TLgBPgxXMpRcxvsuZ7xuQ-2BHf2WZS0KRF9JKa5qfynyQKa1qHbWC4-2B86L2tbU5MPveeozamtsPuTIjuX-2BPurp6bOmWjA6iv4aqpeloWHipym9wz0rXr4s1ON2l7QB-2BrKyyetJUYgAJ9uhs-2FEE9VzIEubOfoW1wg2BptIGZaB19Z8UEzhAvtN7FtjBDe-2B5yBcOoQlJSfcva4M-3DEIS6_pegL5eiE0ny17x6qUkuBhC7rq4ooOxzddfWL016XcVR6sfsVQtuV8U8A4VPO5YIWGmYHAYCFB5blkFhbbzCaVSV1ICe2vzj-2FxwpEkdw7n-2B7OzcWDsKGYzfSdeWa-2F0c2cheNciXaFtIoJ8BRqn77tdAnAkRQwZ2YSesO-2B3yXUGoqhwHftrJ2Vi5OHu7q1y3zMPckgZmIqfENQA3VuwHq7dGWG0Jx-2BuuY6IJ9w1vuhlGl0WLJSntRztpqLueqqZ0DnMHbceBJKLUzXZBk8Hf0nQLSrfe4-2Fm0-2BPPeJWU4mW2-2B2YZovlT97ptkCoYHvB9vtz1zw48JlGlRk4-2BQrn-2FvlCpT-2Bom5SY0EYkd6FXRGERoApz6g9mPFJ8g2EfA-2BXZLHLj4yzLVKCOlfhVhy4xSAB-2BU5b-2F1kTEegr-2BZP4TzHoBPm8wMnA-2BjYAcajbGTw3jvKyyGjY0ZbHQyN5RstWUJ7ZJW0KP3GG8uMxW9Pj2AaFCTlI-3D';
+  'http://embk.me/milo7444?utm_campaign=cns_ref_dog_pub_profile&utm_medium=other&utm_source=embark';
 
 export default function Home() {
   const breeds = BREEDS;
